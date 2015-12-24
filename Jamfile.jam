@@ -1,0 +1,12 @@
+project singularity : usage-requirements <include>. ;
+lib boost_unit_test_framework ;
+using testing ;
+lib singularity
+ : singularity.c
+ : <optimization>off
+   <threading>single
+   <cflags>-O0
+ ;
+
+run test.cpp singularity boost_unit_test_framework ;
+  
