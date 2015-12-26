@@ -56,10 +56,10 @@ No, it *would* be pointless, except the entire C toolchain is shit.
 First you need to pick the code for your compiler:
 
 ```
-| Code    | Name                    |
-| `clang` | Clang/LLVM              |
-| `gcc`   | GNU Compiler Collection |
-| `msvc`  | Microsoft Visual C++    |
+| Code  | Name                    |
+| clang | Clang/LLVM              |
+| gcc   | GNU Compiler Collection |
+| msvc  | Microsoft Visual C++    |
 ```
 
 There are a handful of other supported compilers here: http://www.boost.org/build/doc/html/bbv2/reference/tools.html#bbv2.reference.tools.compilers
