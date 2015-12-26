@@ -14,26 +14,28 @@ This module provides workarounds for the optimiser for two use cases:
 * Benchmarking
 * Zeroing out data
 
-    /**
-     * May stop your compiler from optimising out some code
-     * 
-     * Useful to make benchmarks more reliable
-     * 
-     * @param void *p pointer to your obj
-     * @return void *
-     */
-    void *singularity(void *p);
-  
-    /**
-     * Zeroes out the memory pointed to by *p and returns p
-     * 
-     * A cop-out for platforms that don't support secure keyboard input
-     * 
-     * @param void *p pointer to your obj
-     * @return void *
-     */
-     void *eat(void *p, size_t count);
 
+```C
+/**
+ * May stop your compiler from optimising out some code
+ * 
+ * Useful to make benchmarks more reliable
+ * 
+ * @param void *p pointer to your obj
+ * @return void *
+ */
+void *singularity(void *p);
+/**
+ * Zeroes out the memory pointed to by *p and returns p
+ * 
+ * A cop-out for platforms that don't support secure keyboard input
+ * 
+ * @param void *p pointer to your obj
+ * @return void *
+ */
+ void *eat(void *p, size_t count);
+ ```
+ 
 ## How does it work?
 
 * Builds without optimisations
@@ -53,10 +55,12 @@ No, it *would* be pointless, except the entire C toolchain is shit.
 
 First you need to pick the code for your compiler:
 
+```
 | Code    | Name                    |
 | `clang` | Clang/LLVM              |
 | `gcc`   | GNU Compiler Collection |
 | `msvc`  | Microsoft Visual C++    |
+```
 
 There are a handful of other supported compilers here: http://www.boost.org/build/doc/html/bbv2/reference/tools.html#bbv2.reference.tools.compilers
 
@@ -65,12 +69,13 @@ use a different compiler.
 
 1. Build shared library and run tests:
 
+```
     b2 toolset=clang
-
+```
 2. Build static library
-
+```
     b2 link=static singularity toolset=clang
-
+```
 Built files can be found in 'bin'.
 
 ## I don't like Boost Build
